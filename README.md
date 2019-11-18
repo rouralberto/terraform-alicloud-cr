@@ -1,14 +1,7 @@
 # Alicloud Container Registry Terraform Module
 A terraform module to create a private Container Registry, a set of namespaces and a RAM role able to pull/push from the Registry.
 
-- It assumes this
-- It assumes that
-
 **NOTE:** This module uses _AccessKey_ and _SecretKey_ from `profile` and `shared_credentials_file`. If you have not set them yet, please install [aliyun-cli](https://github.com/aliyun/aliyun-cli#installation) and configure it.
-
-[Module Architecture Picture]
-
-[The Resources used in the Module]
 
 ----------------------
 
@@ -30,13 +23,15 @@ push/pull to/from the repositories inside the namespace created.
 ## Inputs
 | Name | Description | Type | Default | Required | Valid When |
 |------|-------------|------|---------|----------|------------|
-|  xxx |     xxx     | xxx  |   xxx   |    xxx   |     xxx    |
+|  namespace |     Name of Container Registry namespace     | string  |   -   |    yes   |     -    |
 
 
 ## Outputs
 | Name | Description |
 |------|-------------|
-|  xxx |     xxx     |
+|  ecr_user_id |     The ECR Namespace's User ID     |
+|  ecr_user_name |     The ECR Namespace's User Name     |
+|  ecr_user_key |     The ECR Namespace's User access key ID     |
 
 
 ## Terraform version
