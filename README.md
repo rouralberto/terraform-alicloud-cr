@@ -10,9 +10,9 @@ A terraform module to create a private Container Registry, a set of namespaces a
 provider "alicloud" {}
 
 module "cr" {
-  source  = "cirrusaudit/cr/alicloud"
+  source  = "roura356a/cr/alicloud"
   version = "1.0.0"
-
+  
   namespace = "your_namespace"
 }
 ```
