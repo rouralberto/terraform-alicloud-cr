@@ -13,8 +13,19 @@ A terraform module to create a private Container Registry, a set of namespaces a
 ----------------------
 
 ## Usage
-[Module Usage Description]
+```
+provider "alicloud" {}
 
+module "cr" {
+  source  = "cirrusaudit/cr/alicloud"
+  version = "1.0.0"
+
+  namespace = "your_namespace"
+}
+```
+
+After running `terraform apply`, a file called `ecr-ak.json` will be generated with the AccessKey & SecretKey needed to
+push/pull to/from the repositories inside the namespace created.
 
 ## Inputs
 | Name | Description | Type | Default | Required | Valid When |
