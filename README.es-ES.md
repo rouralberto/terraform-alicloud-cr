@@ -13,7 +13,7 @@ provider "alicloud" {}
 
 module "cr" {
   source  = "roura356a/cr/alicloud"
-  version = "1.0.6"
+  version = "1.0.7"
   
   namespace = "tu_namespace"
 }
