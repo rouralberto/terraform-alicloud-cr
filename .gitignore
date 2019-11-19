@@ -1,6 +1,6 @@
 .terraform
 cr-ak.json
 *.tfstate
-*.tfstate.backup
+*.tfstate.*
 
 .idea

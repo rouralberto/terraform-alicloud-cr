@@ -13,6 +13,14 @@ resource "alicloud_cr_namespace" "registry_namespace" {
   default_visibility = "PRIVATE"
 }
 
+resource "alicloud_cr_repo" "namespace_repositories" {
+  count     = length(var.repositories)
+  namespace = alicloud_cr_namespace.registry_namespace.name
+  name      = element(var.repositories, count.index)
+  summary   = "PRIVATE Docker Repository ${var.namespace}/${element(var.repositories, count.index)}"
+  repo_type = "PRIVATE"
+}
+
 resource "alicloud_ram_policy" "cr_namespace_policy" {
   name = "${var.namespace}-cr-policy"
   document = jsonencode({

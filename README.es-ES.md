@@ -13,7 +13,7 @@ provider "alicloud" {}
 
 module "cr" {
   source  = "roura356a/cr/alicloud"
-  version = "1.0.7"
+  version = "1.0.8"
   
   namespace = "tu_namespace"
 }
@@ -29,6 +29,7 @@ Tras ejecutar `terraform apply`, un fichero llamado `cr-ak.json` será generado 
 | shared_credentials_file | La ruta al archivo `credentials`. Si no se proporciona y un perfil ha sido especificado, se asumirá $HOME/.aliyun/config.json como valor | string | - | no |
 | skip_region_validation | Omitir validación estática de la región. Usada por usuarios que tienen acceso a regiones privadas o regiones que usan APIs compatibles con Alibaba Cloud | bool | - | no |
 | namespace | Nombre del namespace para crear en el Registro de Contenedores | string | - | yes |
+| repositories | Lista opcional de repositorios para ser creados al lanzar | list(string) | - | yes |
 | repo_autocreate | Booleana, cuando se asigne true, los repositorios podrán ser creados al vuelo cuando se use docker push con nuevas imágenes | bool | - | no |
 
 
