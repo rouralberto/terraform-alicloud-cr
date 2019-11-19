@@ -1,7 +1,7 @@
 provider "alicloud" {}
 
 variable "namespace" {
-  default = "my_ecr_namespace"
+  default = "my_cr_namespace"
 }
 
 module "cr" {
