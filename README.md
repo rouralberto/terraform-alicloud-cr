@@ -19,7 +19,7 @@ module "cr" {
 }
 ```
 
-After running `terraform apply`, a file called `ecr-ak.json` will be generated with the AccessKey & SecretKey needed to
+After running `terraform apply`, a file called `cr-ak.json` will be generated with the AccessKey & SecretKey needed to
 push/pull to/from the repositories inside the namespace created.
 
 ## Inputs
@@ -36,9 +36,9 @@ push/pull to/from the repositories inside the namespace created.
 ## Outputs
 | Name | Description |
 |------|-------------|
-|  ecr_user_id |     The ECR Namespace's User ID     |
-|  ecr_user_name |     The ECR Namespace's User Name     |
-|  ecr_user_key |     The ECR Namespace's User access key ID     |
+|  cr_user_id |     The CR Namespace's User ID     |
+|  cr_user_name |     The CR Namespace's User Name     |
+|  cr_user_key |     The CR Namespace's User access key ID     |
 
 
 ## Terraform version
