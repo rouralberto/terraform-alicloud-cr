@@ -11,7 +11,7 @@ provider "alicloud" {}
 
 module "cr" {
   source  = "roura356a/cr/alicloud"
-  version = "1.0.5"
+  version = "1.0.6"
   
   namespace = "your_namespace"
 }
@@ -21,9 +21,14 @@ After running `terraform apply`, a file called `ecr-ak.json` will be generated w
 push/pull to/from the repositories inside the namespace created.
 
 ## Inputs
-| Name | Description | Type | Default | Required | Valid When |
-|------|-------------|------|---------|----------|------------|
-|  namespace |     Name of Container Registry namespace     | string  |   -   |    yes   |     -    |
+| Name | Description | Type | Default | Required |
+|------|-------------|------|---------|----------|
+| region | The region used to launch this module resources | string | - | no |
+| profile | The profile name as set in the shared credentials file. If not set, it will be sourced from the ALICLOUD_PROFILE environment variable | string | - | no |
+| shared_credentials_file | This is the path to the shared credentials file. If this is not set and a profile is specified, $HOME/.aliyun/config.json will be used | string | - | no |
+| skip_region_validation | Skip static validation of region ID. Used by users of alternative AlibabaCloud-like APIs or users w/ access to regions that are not public (yet) | bool | - | no |
+| namespace | Name of Container Registry namespace | string | - | yes |
+| repo_autocreate | Boolean, when it set to true, repositories are automatically created when pushing new images. If it set to false, you create repository for images before pushing | bool | - | no |
 
 
 ## Outputs
