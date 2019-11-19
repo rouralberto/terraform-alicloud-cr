@@ -40,6 +40,7 @@ Puedes crear repositorios simplemente con proporcionar una lista de strings con 
 |  cr_user_id | El ID del usuario para el namespace de CR |
 |  cr_user_name | El nombre del usuario para el namespace de CR |
 |  cr_user_key | El AccessKey para el namespace de CR |
+| repository_ids | Lista de posibles repositorios creados |
 
 
 ## Versión de Terraform

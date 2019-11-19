@@ -41,6 +41,7 @@ You can create repositories by populating the `repositories` variable with list 
 | cr_user_id | The CR Namespace's User ID |
 | cr_user_name | The CR Namespace's User Name |
 | cr_user_key | The CR Namespace's User access key ID |
+| repository_ids | List of repository IDs created, if any |
 
 
 ## Terraform version
