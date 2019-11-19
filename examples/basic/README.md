@@ -19,6 +19,5 @@ $ terraform apply
 ## Outputs
 | Name | Description |
 |------|-------------|
-| cr_user_id | The CR Namespace's User ID |
-| cr_user_name | The CR Namespace's User Name |
-| cr_user_key | The CR Namespace's User access key ID |
+| cr_access_key | The CR Namespace's Access Key |
+| cr_endpoint | Public endpoint of the registry |

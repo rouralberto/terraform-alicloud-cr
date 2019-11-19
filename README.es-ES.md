@@ -14,7 +14,7 @@ provider "alicloud" {}
 
 module "cr" {
   source  = "roura356a/cr/alicloud"
-  version = "1.2.1"
+  version = "1.2.2"
   
   namespace = "tu_namespace"
 }
@@ -40,11 +40,9 @@ Puedes crear repositorios simplemente con proporcionar una lista de strings con 
 ## Salidas
 | Nombre | Descripción |
 |------|-------------|
-| cr_user_id | El ID del usuario para el namespace de CR |
-| cr_user_name | El nombre del usuario para el namespace de CR |
-| cr_user_key | El AccessKey para el namespace de CR |
+| cr_access_key | El AccessKey para el namespace de CR |
+| cr_endpoint | Dominio público del Registro de Contenedores |
 | repository_ids | Lista de posibles repositorios creados |
-| repository_host | Dominio público del Registro de Contenedores |
 
 
 ## Versión de Terraform

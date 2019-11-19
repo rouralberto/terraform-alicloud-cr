@@ -10,11 +10,6 @@ variable "profile" {
   type        = string
 }
 
-variable "password" {
-  description = "The password to log into the registry"
-  type        = string
-}
-
 variable "shared_credentials_file" {
   description = "This is the path to the shared credentials file. If this is not set and a profile is specified, $HOME/.aliyun/config.json will be used."
   default     = ""
@@ -33,8 +28,8 @@ variable "namespace" {
 }
 
 variable "repositories" {
-  description = "List of optional repositories to be created on apply"
-  default     = []
+  description = "List of repositories to be created on apply"
+  default     = ["default"]
   type        = list(string)
 }
 

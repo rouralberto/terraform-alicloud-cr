@@ -19,6 +19,5 @@ $ terraform apply
 ## Salidas
 | Nombre | Descripción |
 |------|-------------|
-| cr_user_id | El ID del usuario para el namespace de CR |
-| cr_user_name | El nombre del usuario para el namespace de CR |
-| cr_user_key | El AccessKey para el namespace de CR |
+| cr_access_key | El AccessKey para el namespace de CR |
+| cr_endpoint | Dominio público del Registro de Contenedores |
