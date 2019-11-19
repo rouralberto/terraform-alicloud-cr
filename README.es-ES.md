@@ -19,7 +19,7 @@ module "cr" {
 }
 ```
 
-Tras ejecutar `terraform apply`, un fichero llamado `ecr-ak.json` será generado con el AccessKey y SecretKey necesarios para hacer push/pull a los repositorios dentro del namespace creado.
+Tras ejecutar `terraform apply`, un fichero llamado `cr-ak.json` será generado con el AccessKey y SecretKey necesarios para hacer push/pull a los repositorios dentro del namespace creado.
 
 ## Entradas
 | Nombre | Descripción | Tipo | Valor por defecto | Requerido |
@@ -35,9 +35,9 @@ Tras ejecutar `terraform apply`, un fichero llamado `ecr-ak.json` será generado
 ## Salidas
 | Name | Description |
 |------|-------------|
-|  ecr_user_id | El ID del usuario para el namespace de CR |
-|  ecr_user_name | El nombre del usuario para el namespace de CR |
-|  ecr_user_key | El AccessKey para el namespace de CR |
+|  cr_user_id | El ID del usuario para el namespace de CR |
+|  cr_user_name | El nombre del usuario para el namespace de CR |
+|  cr_user_key | El AccessKey para el namespace de CR |
 
 
 ## Versión de Terraform
