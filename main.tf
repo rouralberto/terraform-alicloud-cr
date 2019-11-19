@@ -13,7 +13,7 @@ resource "alicloud_cr_namespace" "registry_namespace" {
   default_visibility = "PRIVATE"
 }
 
-resource "alicloud_ram_policy" "ecr_namespace_policy" {
+resource "alicloud_ram_policy" "cr_namespace_policy" {
   name = "${var.namespace}-cr-policy"
   document = jsonencode({
     "Statement" = [
@@ -39,13 +39,13 @@ resource "alicloud_ram_user" "namespace_user" {
   force        = true
 }
 
-resource "alicloud_ram_user_policy_attachment" "ecr_user_policy_attachment" {
-  policy_name = alicloud_ram_policy.ecr_namespace_policy.name
-  policy_type = alicloud_ram_policy.ecr_namespace_policy.type
+resource "alicloud_ram_user_policy_attachment" "cr_user_policy_attachment" {
+  policy_name = alicloud_ram_policy.cr_namespace_policy.name
+  policy_type = alicloud_ram_policy.cr_namespace_policy.type
   user_name   = alicloud_ram_user.namespace_user.name
 }
 
-resource "alicloud_ram_access_key" "ecr_ak" {
+resource "alicloud_ram_access_key" "cr_ak" {
   user_name   = alicloud_ram_user.namespace_user.name
-  secret_file = "ecr-ak.json"
+  secret_file = "cr-ak.json"
 }
