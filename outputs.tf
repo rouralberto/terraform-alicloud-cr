@@ -14,6 +14,11 @@ output "cr_user_key" {
 }
 
 output "repository_ids" {
-  description = "List of repository IDs created, if any"
-  value       = alicloud_cr_repo.namespace_repositories.*.id
+  description = "List of repository IDs created"
+  value       = length(var.repositories) > 0 ? alicloud_cr_repo.namespace_repositories.*.id : null
+}
+
+output "repository_host" {
+  description = "Domain of public endpoint"
+  value       = length(var.repositories) > 0 ? alicloud_cr_repo.namespace_repositories[0].domain_list.public : null
 }
