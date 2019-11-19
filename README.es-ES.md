@@ -3,7 +3,7 @@ Módulo Terraform para crear un Registro de Contenedores Docker privado (namespa
 
 **NOTA:** Este módulo usa _AccessKey_ y _SecretKey_ del `profile` y del `shared_credentials_file`. Si no los has definido todavía, por favor instala [aliyun-cli](https://github.com/aliyun/aliyun-cli#installation) y configúralo.
 
-***Disponible en otros idiomas:*** [English](README.md), [Español](README.es-ES.md), [简体中文](README.zh-CN.md).
+***Disponible en otros idiomas:*** [English](https://github.com/roura356a/terraform-alicloud-cr/blob/master/README.md), [Español](https://github.com/roura356a/terraform-alicloud-cr/blob/master/README.es-ES.md), [简体中文](https://github.com/roura356a/terraform-alicloud-cr/blob/master/README.zh-CN.md).
 
 ----------------------
 
@@ -32,6 +32,7 @@ Tras ejecutar `terraform apply`, un fichero llamado `cr-ak.json` será generado 
 | repositories | Lista opcional de repositorios para ser creados al lanzar | list(string) | - | no |
 | repo_autocreate | Booleana, cuando se asigne true, los repositorios podrán ser creados al vuelo cuando se use docker push con nuevas imágenes | bool | - | no |
 
+Puedes crear repositorios simplemente con proporcionar una lista de strings con la variable `repositories`.
 
 ## Salidas
 | Name | Description |
@@ -48,6 +49,9 @@ Terraform version 0.12.0+ es requerida para que funcione este módulo.
 ## Autores
 Creado y maintenido por Alberto Roura ([@roura356a](https://github.com/roura356a), [albertoroura.com](https://albertoroura.com/)). Contribuye si quieres.
 
+## Ejemplos
+- [Básico](https://github.com/roura356a/terraform-alicloud-cr/tree/master/examples/basic)
+- [Con Repositorios](https://github.com/roura356a/terraform-alicloud-cr/tree/master/examples/with-repositories)
 
 ## Licencia
 Licencia Apache 2. Abre [LICENSE](LICENSE) para más detalles.

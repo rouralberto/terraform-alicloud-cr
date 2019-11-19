@@ -3,7 +3,7 @@ A terraform module to create a private Container Registry namespace and a RAM us
 
 **NOTE:** This module uses _AccessKey_ and _SecretKey_ from `profile` and `shared_credentials_file`. If you have not set them yet, please install [aliyun-cli](https://github.com/aliyun/aliyun-cli#installation) and configure it.
 
-***Read this in other languages:*** [English](README.md), [Español](README.es-ES.md), [简体中文](README.zh-CN.md).
+***Read this in other languages:*** [English](https://github.com/roura356a/terraform-alicloud-cr/blob/master/README.md), [Español](https://github.com/roura356a/terraform-alicloud-cr/blob/master/README.es-ES.md), [简体中文](https://github.com/roura356a/terraform-alicloud-cr/blob/master/README.zh-CN.md).
 
 ----------------------
 
@@ -33,6 +33,7 @@ push/pull to/from the repositories inside the namespace created.
 | repositories | List of optional repositories to be created on apply | list(string) | - | no |
 | repo_autocreate | Boolean, when it set to true, repositories are automatically created when pushing new images. If it set to false, you create repository for images before pushing | bool | - | no |
 
+You can create repositories by populating the `repositories` variable with list of strings.
 
 ## Outputs
 | Name | Description |
@@ -49,6 +50,9 @@ Terraform version 0.12.0+ is required for this module to work.
 ## Authors
 Created and maintained by Alberto Roura ([@roura356a](https://github.com/roura356a), [albertoroura.com](https://albertoroura.com/)). Feel free to contribute.
 
+## Examples
+- [Basic](https://github.com/roura356a/terraform-alicloud-cr/tree/master/examples/basic)
+- [With Repositories](https://github.com/roura356a/terraform-alicloud-cr/tree/master/examples/with-repositories)
 
 ## License
 Apache 2 Licensed. See [LICENSE](LICENSE) for full details.
