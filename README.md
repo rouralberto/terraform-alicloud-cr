@@ -20,8 +20,7 @@ module "cr" {
 }
 ```
 
-After running `terraform apply`, a file called `cr-{namespace}-ak.json` will be generated with the AccessKey & SecretKey needed to
-push/pull to/from the repositories inside the namespace created.
+After running `terraform apply`, a file called `cr-{namespace}-ak.json` will be generated with the _AccessKey_ & _SecretKey_ needed to query the `GetAuthorizationToken` API for `cr` and be able to push/pull to/from the repositories inside the namespace created.
 
 
 ## Inputs
@@ -34,6 +33,7 @@ push/pull to/from the repositories inside the namespace created.
 | namespace | Name of Container Registry namespace | string | - | yes |
 | repositories | List of optional repositories to be created on apply | list(string) | - | no |
 | repo_autocreate | Boolean, when it set to true, repositories are automatically created when pushing new images. If it set to false, you create repository for images before pushing | bool | - | no |
+
 
 You can create repositories by populating the `repositories` variable with a list of strings.
 

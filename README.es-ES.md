@@ -20,7 +20,7 @@ module "cr" {
 }
 ```
 
-Tras ejecutar `terraform apply`, un fichero llamado `cr-{namespace}-ak.json` será generado con el AccessKey y SecretKey necesarios para hacer push/pull a los repositorios dentro del namespace creado.
+Tras ejecutar `terraform apply`, un fichero llamado `cr-{namespace}-ak.json` será generado con el _AccessKey_ y _SecretKey_ necesarios para llamar el API de `cr` `GetAuthorizationToken` y así poder hacer push/pull a los repositorios dentro del namespace creado.
 
 
 ## Entradas
