@@ -1,15 +1,15 @@
-output "cr_user_id" {
+output "cr_login_id" {
   description = "The CR Namespace's User ID"
-  value       = alicloud_ram_user.namespace_user.id
+  value       = alicloud_ram_login_profile.ecr_login.id
 }
 
-output "cr_user_name" {
+output "cr_login_user" {
   description = "The CR Namespace's User Name"
-  value       = alicloud_ram_user.namespace_user.name
+  value       = alicloud_ram_login_profile.ecr_login.user_name
 }
 
-output "cr_user_key" {
-  description = "The CR Namespace's User access key ID"
+output "cr_access_key" {
+  description = "The CR Namespace's Access Key"
   value       = alicloud_ram_access_key.cr_ak.id
 }
 

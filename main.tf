@@ -51,6 +51,11 @@ resource "alicloud_ram_user" "namespace_user" {
   force        = true
 }
 
+resource "alicloud_ram_login_profile" "ecr_login" {
+  user_name = alicloud_ram_user.namespace_user.name
+  password  = var.password
+}
+
 resource "alicloud_ram_user_policy_attachment" "cr_user_policy_attachment" {
   policy_name = alicloud_ram_policy.cr_namespace_policy.name
   policy_type = alicloud_ram_policy.cr_namespace_policy.type

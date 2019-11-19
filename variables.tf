@@ -3,11 +3,18 @@ variable "region" {
   default     = ""
   type        = string
 }
+
 variable "profile" {
   description = "The profile name as set in the shared credentials file. If not set, it will be sourced from the ALICLOUD_PROFILE environment variable."
   default     = "default"
   type        = string
 }
+
+variable "password" {
+  description = "The password to log into the registry"
+  type        = string
+}
+
 variable "shared_credentials_file" {
   description = "This is the path to the shared credentials file. If this is not set and a profile is specified, $HOME/.aliyun/config.json will be used."
   default     = ""
