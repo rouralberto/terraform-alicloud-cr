@@ -45,6 +45,10 @@ Puedes crear repositorios simplemente con proporcionar una lista de strings con 
 | repository_ids | Lista de posibles repositorios creados |
 
 
+## Docker Login
+Con las credenciales del archivo `cr-{namespace}-ak.json`, puedes conseguir, usando el SDK `aliyun-cli`, un login temporal ejecutando `aliyun cr GetAuthorizationToken --access-key-id <AccessKeyId> --access-key-secret <AccessKeySecret> --region <RegionID>`.
+
+
 ## Versión de Terraform
 Terraform version 0.12.0+ es requerida para que funcione este módulo.
 

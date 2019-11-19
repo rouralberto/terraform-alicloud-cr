@@ -5,7 +5,7 @@ output "cr_access_key" {
 
 output "cr_endpoint" {
   description = "Public endpoint of the registry"
-  value       = alicloud_cr_repo.namespace_repositories[0].domain_list.public
+  value       = alicloud_cr_repo.namespace_repositories.0.domain_list.public
 }
 
 output "repository_ids" {

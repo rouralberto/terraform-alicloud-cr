@@ -1,3 +1,7 @@
+terraform {
+  required_version = "> 0.12.0"
+}
+
 provider "alicloud" {
   version                 = ">=1.56.0"
   profile                 = var.profile
@@ -7,8 +11,15 @@ provider "alicloud" {
   configuration_source    = "roura356a/cr"
 }
 
+data "alicloud_account" "current" {}
+
+data "alicloud_regions" "current" {
+  current = true
+}
+
 locals {
-  registry_type = "PRIVATE"
+  registry_type      = "PRIVATE"
+  cr_resource_prefix = "acs:cr:${data.alicloud_regions.current.regions.0.id}:${data.alicloud_account.current.id}:repository/${var.namespace}"
 }
 
 resource "alicloud_cr_namespace" "registry_namespace" {
@@ -33,12 +44,17 @@ resource "alicloud_ram_policy" "cr_namespace_policy" {
         "Action" = "cr:*",
         "Effect" = "Allow",
         "Resource" = [
-          "acs:cr:*:*:repository/${var.namespace}",
-          "acs:cr:*:*:repository/${var.namespace}/*"
-        ]
-      }
+          "${local.cr_resource_prefix}",
+          "${local.cr_resource_prefix}/*",
+        ],
+      },
+      {
+        "Action"   = "*",
+        "Effect"   = "Allow",
+        "Resource" = "*",
+      },
     ],
-    "Version" = "1"
+    "Version" = "1",
   })
   description = "RAM Policy with push/pull permissions for Container Registry's ${var.namespace} namespace"
   force       = true
