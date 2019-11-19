@@ -18,7 +18,6 @@ variable "skip_region_validation" {
 
 variable "namespace" {
   description = "Name of Container Registry namespace"
-  default     = ""
 }
 
 variable "repo_autocreate" {
