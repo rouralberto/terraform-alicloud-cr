@@ -3,6 +3,8 @@ A terraform module to create a private Container Registry namespace and a RAM us
 
 **NOTE:** This module uses _AccessKey_ and _SecretKey_ from `profile` and `shared_credentials_file`. If you have not set them yet, please install [aliyun-cli](https://github.com/aliyun/aliyun-cli#installation) and configure it.
 
+***Read this in other languages:*** [English](README.md), [Español](README.es-ES.md), [简体中文](README.zh-CN.md).
+
 ----------------------
 
 ## Usage
