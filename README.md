@@ -63,6 +63,3 @@ Apache 2 Licensed. See [LICENSE](LICENSE) for full details.
 * [Terraform Alicloud Provider Github](https://github.com/terraform-providers/terraform-provider-alicloud)
 * [Terraform Alicloud Provider Release](https://releases.hashicorp.com/terraform-provider-alicloud/)
 * [Terraform Alicloud Provider Docs](https://www.terraform.io/docs/providers/alicloud/)
-
-### TODO
-- Create optional set of repositories if specified.
