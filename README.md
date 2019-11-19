@@ -6,7 +6,7 @@ A terraform module to create a private Container Registry namespace and a RAM us
 ----------------------
 
 ## Usage
-```
+```hcl
 provider "alicloud" {}
 
 module "cr" {
