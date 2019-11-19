@@ -13,13 +13,13 @@ provider "alicloud" {}
 
 module "cr" {
   source  = "roura356a/cr/alicloud"
-  version = "1.0.8"
+  version = "1.1.0"
   
   namespace = "your_namespace"
 }
 ```
 
-After running `terraform apply`, a file called `cr-ak.json` will be generated with the AccessKey & SecretKey needed to
+After running `terraform apply`, a file called `cr-{namespace}-ak.json` will be generated with the AccessKey & SecretKey needed to
 push/pull to/from the repositories inside the namespace created.
 
 ## Inputs
@@ -42,6 +42,7 @@ You can create repositories by populating the `repositories` variable with a lis
 | cr_user_name | The CR Namespace's User Name |
 | cr_user_key | The CR Namespace's User access key ID |
 | repository_ids | List of repository IDs created, if any |
+| repository_host | Domain of public endpoint |
 
 
 ## Terraform version
@@ -51,12 +52,14 @@ Terraform version 0.12.0+ is required for this module to work.
 ## Authors
 Created and maintained by Alberto Roura ([@roura356a](https://github.com/roura356a), [albertoroura.com](https://albertoroura.com/)). Feel free to contribute.
 
+
 ## Examples
 - [Basic](https://github.com/roura356a/terraform-alicloud-cr/tree/master/examples/basic)
 - [With Repositories](https://github.com/roura356a/terraform-alicloud-cr/tree/master/examples/with-repositories)
 
+
 ## License
-Apache 2 Licensed. See [LICENSE](LICENSE) for full details.
+Apache 2 Licensed. See [LICENSE](https://github.com/roura356a/terraform-alicloud-cr/tree/master/LICENSE) for full details.
 
 
 ## Reference

@@ -10,7 +10,7 @@ locals {
 
 module "cr" {
   source  = "roura356a/cr/alicloud"
-  version = "1.0.8"
+  version = "1.1.0"
 
   namespace    = local.namespace
   repositories = local.repositories
