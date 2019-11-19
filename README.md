@@ -7,13 +7,14 @@ A terraform module to create a private Container Registry namespace and a RAM us
 
 ----------------------
 
+
 ## Usage
 ```hcl
 provider "alicloud" {}
 
 module "cr" {
   source  = "roura356a/cr/alicloud"
-  version = "1.1.0"
+  version = "1.1.1"
   
   namespace = "your_namespace"
 }
@@ -21,6 +22,7 @@ module "cr" {
 
 After running `terraform apply`, a file called `cr-{namespace}-ak.json` will be generated with the AccessKey & SecretKey needed to
 push/pull to/from the repositories inside the namespace created.
+
 
 ## Inputs
 | Name | Description | Type | Default | Required |
@@ -34,6 +36,7 @@ push/pull to/from the repositories inside the namespace created.
 | repo_autocreate | Boolean, when it set to true, repositories are automatically created when pushing new images. If it set to false, you create repository for images before pushing | bool | - | no |
 
 You can create repositories by populating the `repositories` variable with a list of strings.
+
 
 ## Outputs
 | Name | Description |

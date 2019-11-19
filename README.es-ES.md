@@ -7,19 +7,21 @@ Módulo Terraform para crear un Registro de Contenedores Docker privado (namespa
 
 ----------------------
 
+
 ## Uso
 ```hcl
 provider "alicloud" {}
 
 module "cr" {
   source  = "roura356a/cr/alicloud"
-  version = "1.1.0"
+  version = "1.1.1"
   
   namespace = "tu_namespace"
 }
 ```
 
 Tras ejecutar `terraform apply`, un fichero llamado `cr-{namespace}-ak.json` será generado con el AccessKey y SecretKey necesarios para hacer push/pull a los repositorios dentro del namespace creado.
+
 
 ## Entradas
 | Nombre | Descripción | Tipo | Valor por defecto | Requerido |
@@ -34,8 +36,9 @@ Tras ejecutar `terraform apply`, un fichero llamado `cr-{namespace}-ak.json` ser
 
 Puedes crear repositorios simplemente con proporcionar una lista de strings con la variable `repositories`.
 
+
 ## Salidas
-| Name | Description |
+| Nombre | Descripción |
 |------|-------------|
 | cr_user_id | El ID del usuario para el namespace de CR |
 | cr_user_name | El nombre del usuario para el namespace de CR |
