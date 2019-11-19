@@ -36,9 +36,9 @@ push/pull to/from the repositories inside the namespace created.
 ## Outputs
 | Name | Description |
 |------|-------------|
-|  cr_user_id |     The CR Namespace's User ID     |
-|  cr_user_name |     The CR Namespace's User Name     |
-|  cr_user_key |     The CR Namespace's User access key ID     |
+| cr_user_id | The CR Namespace's User ID |
+| cr_user_name | The CR Namespace's User Name |
+| cr_user_key | The CR Namespace's User access key ID |
 
 
 ## Terraform version
