@@ -33,7 +33,7 @@ push/pull to/from the repositories inside the namespace created.
 | repositories | List of optional repositories to be created on apply | list(string) | - | no |
 | repo_autocreate | Boolean, when it set to true, repositories are automatically created when pushing new images. If it set to false, you create repository for images before pushing | bool | - | no |
 
-You can create repositories by populating the `repositories` variable with list of strings.
+You can create repositories by populating the `repositories` variable with a list of strings.
 
 ## Outputs
 | Name | Description |
