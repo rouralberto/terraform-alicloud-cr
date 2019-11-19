@@ -1,5 +1,5 @@
 .terraform
-ecr-ak.json
+cr-ak.json
 *.tfstate
 *.tfstate.backup
 
