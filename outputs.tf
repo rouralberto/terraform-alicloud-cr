@@ -13,6 +13,11 @@ output "cr_user" {
   value       = alicloud_ram_login_profile.namespace_console_user.user_name
 }
 
+output "ram_user" {
+  description = "The RAM User"
+  value       = alicloud_ram_user.namespace_user.name
+}
+
 output "ram_console_username" {
   description = "Console login username"
   value       = "${alicloud_ram_login_profile.namespace_console_user.user_name}@${data.alicloud_account.current.id}.onaliyun.com"
@@ -35,5 +40,10 @@ output "disposable_password" {
 
 output "access_key_status" {
   description = "Status of the created AccessKey"
-  value       = alicloud_ram_access_key.cr_ak
+  value       = alicloud_ram_access_key.cr_ak.status
+}
+
+output "ram_policy_name" {
+  description = "The RAM policy name"
+  value       = alicloud_ram_policy.cr_namespace_policy.name
 }

@@ -51,6 +51,8 @@ You can create repositories by populating the `repositories` variable with a lis
 | cr_access_key | The CR Namespace's Access Key |
 | cr_user | The CR Namespace's User |
 | cr_endpoint | Public endpoint of the registry |
+| ram_user | The RAM User |
+| ram_policy_name | The RAM policy name |
 | repository_ids | List of repository IDs created |
 | ram_console_username | Console login username |
 | disposable_password | Password to activate the console login profile, forces to reset it |
