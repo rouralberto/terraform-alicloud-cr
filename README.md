@@ -79,6 +79,11 @@ Created and maintained by Alberto Roura ([@roura356a](https://github.com/roura35
 - [With Repositories](https://github.com/roura356a/terraform-alicloud-cr/tree/master/examples/with-repositories)
 
 
+## Testing
+This Terrafom module uses [terratest](https://github.com/gruntwork-io/terratest) to test the IaC resources created. To
+test, go into the `test` folder, run `go mod init cr`, `go mod tidy` and then `go test`.
+
+
 ## License
 Apache 2 Licensed. See [LICENSE](https://github.com/roura356a/terraform-alicloud-cr/tree/master/LICENSE) for full
 details.

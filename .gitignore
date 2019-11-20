@@ -4,3 +4,6 @@ cr-*-ak.json
 *.tfstate.*
 
 .idea
+
+*.mod
+*.sum
