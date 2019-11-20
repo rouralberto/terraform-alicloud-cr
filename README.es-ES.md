@@ -77,7 +77,11 @@ Creado y maintenido por Alberto Roura ([@roura356a](https://github.com/roura356a
 
 ## Ejemplos
 - [Básico](https://github.com/roura356a/terraform-alicloud-cr/tree/master/examples/basic)
-- [Con Repositorios](https://github.com/roura356a/terraform-alicloud-cr/tree/master/examples/with-repositories)
+
+
+## Testeando
+Este módulo de Terraform usa [terratest](https://github.com/gruntwork-io/terratest) para testear los recursos IaC
+creados. Para testear, entra en la carpeta `test`, corre `go mod init cr`, `go mod tidy` y luego `go test`.
 
 
 ## Licencia

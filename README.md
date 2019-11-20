@@ -78,7 +78,6 @@ Created and maintained by Alberto Roura ([@roura356a](https://github.com/roura35
 
 ## Examples
 - [Basic](https://github.com/roura356a/terraform-alicloud-cr/tree/master/examples/basic)
-- [With Repositories](https://github.com/roura356a/terraform-alicloud-cr/tree/master/examples/with-repositories)
 
 
 ## Testing
