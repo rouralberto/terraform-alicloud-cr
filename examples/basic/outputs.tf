@@ -3,6 +3,11 @@ output "cr_access_key" {
   value       = module.cr.cr_access_key
 }
 
+output "ram_console_username" {
+  description = "Console login username"
+  value       = module.cr.ram_console_username
+}
+
 output "cr_endpoint" {
   description = "Public endpoint of the registry"
   value       = module.cr.cr_endpoint

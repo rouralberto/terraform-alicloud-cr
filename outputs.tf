@@ -3,6 +3,11 @@ output "cr_access_key" {
   value       = alicloud_ram_access_key.cr_ak.id
 }
 
+output "ram_console_username" {
+  description = "Console login username"
+  value       = "${alicloud_ram_login_profile.namespace_console_user.user_name}@${data.alicloud_account.current.id}.onaliyun.com"
+}
+
 output "cr_endpoint" {
   description = "Public endpoint of the registry"
   value       = alicloud_cr_repo.namespace_repositories.0.domain_list.public
