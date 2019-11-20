@@ -1,9 +1,13 @@
 # Alicloud Container Registry Terraform Module
-A terraform module to create a private Container Registry namespace and a RAM role able to pull/push from the namespace created.
+A terraform module to create a private Container Registry namespace and a RAM role able to pull/push from the namespace
+created.
 
-**NOTE:** This module uses _AccessKey_ and _SecretKey_ from `profile` and `shared_credentials_file`. If you have not set them yet, please install [aliyun-cli](https://github.com/aliyun/aliyun-cli#installation) and configure it.
+**NOTE:** This module uses _AccessKey_ and _SecretKey_ from `profile` and `shared_credentials_file`. If you have not set
+them yet, please install [aliyun-cli](https://github.com/aliyun/aliyun-cli#installation) and configure it.
 
-***Read this in other languages:*** [English](https://github.com/roura356a/terraform-alicloud-cr/blob/master/README.md), [Español](https://github.com/roura356a/terraform-alicloud-cr/blob/master/README.es-ES.md), [简体中文](https://github.com/roura356a/terraform-alicloud-cr/blob/master/README.zh-CN.md).
+***Read this in other languages:*** [English](https://github.com/roura356a/terraform-alicloud-cr/blob/master/README.md),
+[Español](https://github.com/roura356a/terraform-alicloud-cr/blob/master/README.es-ES.md),
+[简体中文](https://github.com/roura356a/terraform-alicloud-cr/blob/master/README.zh-CN.md).
 
 ----------------------
 
@@ -20,7 +24,9 @@ module "cr" {
 }
 ```
 
-After running `terraform apply`, a file called `cr-{namespace}-ak.json` will be generated with the _AccessKey_ & _SecretKey_ needed to query the `GetAuthorizationToken` API for `cr` and be able to push/pull to/from the repositories inside the namespace created.
+After running `terraform apply`, a file called `cr-{namespace}-ak.json` will be generated with the _AccessKey_ &
+_SecretKey_ needed to query the `GetAuthorizationToken` API for `cr` and be able to push/pull to/from the repositories
+inside the namespace created.
 
 
 ## Inputs
@@ -44,10 +50,18 @@ You can create repositories by populating the `repositories` variable with a lis
 | cr_access_key | The CR Namespace's Access Key |
 | cr_endpoint | Public endpoint of the registry |
 | repository_ids | List of repository IDs created |
+| disposable_password | Password to activate the console login profile, forces to reset it |
 
 
 ## Docker Login
-With the `cr-{namespace}-ak.json` file credentials, you can get, by using the `aliyun-cli` SDK, a temporary registry login running `aliyun cr GetAuthorizationToken --access-key-id <AccessKeyId> --access-key-secret <AccessKeySecret> --region <RegionID>`.
+In order to activate the newly created RAM user on the Registry, only for the first time and due to a security measure
+by Alibaba Cloud (this may change in the future), you need to navigate to the
+[Container Registry Console](https://cr.console.aliyun.com/) using the newly created RAM user (with the one-time
+password outputted on `terraform apply` as `disposable_password`) and follow the on-screen instructions to activate the
+account.
+
+After that, with the `cr-{namespace}-ak.json` file credentials, you can get, by using the `aliyun-cli` SDK, a temporary
+secure login credentials by running `aliyun cr GetAuthorizationToken`. 
 
 
 ## Terraform version
@@ -55,7 +69,8 @@ Terraform version 0.12.0+ is required for this module to work.
 
 
 ## Authors
-Created and maintained by Alberto Roura ([@roura356a](https://github.com/roura356a), [albertoroura.com](https://albertoroura.com/)). Feel free to contribute.
+Created and maintained by Alberto Roura ([@roura356a](https://github.com/roura356a),
+[albertoroura.com](https://albertoroura.com/)). Feel free to contribute.
 
 
 ## Examples
@@ -64,7 +79,8 @@ Created and maintained by Alberto Roura ([@roura356a](https://github.com/roura35
 
 
 ## License
-Apache 2 Licensed. See [LICENSE](https://github.com/roura356a/terraform-alicloud-cr/tree/master/LICENSE) for full details.
+Apache 2 Licensed. See [LICENSE](https://github.com/roura356a/terraform-alicloud-cr/tree/master/LICENSE) for full
+details.
 
 
 ## Reference

@@ -12,3 +12,8 @@ output "repository_ids" {
   description = "List of repository IDs created"
   value       = alicloud_cr_repo.namespace_repositories.*.id
 }
+
+output "disposable_password" {
+  description = "Password to activate the console login profile, forces to reset it"
+  value       = random_string.cr_console_password.result
+}

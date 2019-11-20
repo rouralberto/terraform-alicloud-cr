@@ -1,7 +1,11 @@
 # Container Registry Namespace with RAM User
-This example only creates a new PRIVATE Namespace and a RAM User with full permissions on it.
+This example only creates a new PRIVATE Namespace and a RAM User with full permissions on it. It creates, by default, a
+repository called `default`. To change this, just populate the variable `repositories`.
 
-***Read this in other languages:*** [English](https://github.com/roura356a/terraform-alicloud-cr/blob/master/examples/basic/README.md), [Español](https://github.com/roura356a/terraform-alicloud-cr/blob/master/examples/basic/README.es-ES.md), [简体中文](https://github.com/roura356a/terraform-alicloud-cr/blob/master/examples/basic/README.zh-CN.md).
+***Read this in other languages:***
+[English](https://github.com/roura356a/terraform-alicloud-cr/blob/master/examples/basic/README.md),
+[Español](https://github.com/roura356a/terraform-alicloud-cr/blob/master/examples/basic/README.es-ES.md),
+[简体中文](https://github.com/roura356a/terraform-alicloud-cr/blob/master/examples/basic/README.zh-CN.md).
 
 ----------------------
 
@@ -14,10 +18,3 @@ $ terraform init
 $ terraform plan
 $ terraform apply
 ```
-
-
-## Outputs
-| Name | Description |
-|------|-------------|
-| cr_access_key | The CR Namespace's Access Key |
-| cr_endpoint | Public endpoint of the registry |

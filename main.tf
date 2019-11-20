@@ -22,6 +22,11 @@ locals {
   cr_resource_prefix = "acs:cr:${data.alicloud_regions.current.regions.0.id}:${data.alicloud_account.current.id}:repository/${var.namespace}"
 }
 
+resource "random_password" "cr_console_password" {
+  length  = 12
+  special = false
+}
+
 resource "alicloud_cr_namespace" "registry_namespace" {
   name               = var.namespace
   auto_create        = var.repo_autocreate
@@ -45,16 +50,11 @@ resource "alicloud_ram_policy" "cr_namespace_policy" {
         "Effect" = "Allow",
         "Resource" = [
           "${local.cr_resource_prefix}",
-          "${local.cr_resource_prefix}/*",
-        ],
-      },
-      {
-        "Action"   = "*",
-        "Effect"   = "Allow",
-        "Resource" = "*",
-      },
-    ],
-    "Version" = "1",
+          "${local.cr_resource_prefix}/*"
+        ]
+      }
+    ]
+    "Version" = "1"
   })
   description = "RAM Policy with push/pull permissions for Container Registry's ${var.namespace} namespace"
   force       = true
@@ -65,6 +65,12 @@ resource "alicloud_ram_user" "namespace_user" {
   display_name = "CR '${var.namespace}' Namespace User"
   comments     = "RAM User to use Container Registry's ${var.namespace} namespace"
   force        = true
+}
+
+resource "alicloud_ram_login_profile" "namespace_console_user" {
+  user_name               = alicloud_ram_user.namespace_user.name
+  password                = random_string.cr_console_password.result
+  password_reset_required = true
 }
 
 resource "alicloud_ram_user_policy_attachment" "cr_user_policy_attachment" {
