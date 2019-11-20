@@ -1,6 +1,16 @@
+output "cr_namespace" {
+  description = "The CR Namespace's ID"
+  value       = module.cr.cr_namespace
+}
+
 output "cr_access_key" {
   description = "The CR Namespace's Access Key"
   value       = module.cr.cr_access_key
+}
+
+output "cr_user" {
+  description = "The CR Namespace's User"
+  value       = module.cr.cr_user
 }
 
 output "ram_console_username" {

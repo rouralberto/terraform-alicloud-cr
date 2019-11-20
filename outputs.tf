@@ -1,6 +1,16 @@
+output "cr_namespace" {
+  description = "The CR Namespace's ID"
+  value       = alicloud_cr_namespace.registry_namespace.id
+}
+
 output "cr_access_key" {
   description = "The CR Namespace's Access Key"
   value       = alicloud_ram_access_key.cr_ak.id
+}
+
+output "cr_user" {
+  description = "The CR Namespace's User"
+  value       = alicloud_ram_login_profile.namespace_console_user.user_name
 }
 
 output "ram_console_username" {

@@ -18,7 +18,7 @@ provider "alicloud" {}
 
 module "cr" {
   source  = "roura356a/cr/alicloud"
-  version = "1.2.2"
+  version = "1.3.0"
   
   namespace = "your_namespace"
 }
@@ -47,7 +47,9 @@ You can create repositories by populating the `repositories` variable with a lis
 ## Outputs
 | Name | Description |
 |------|-------------|
+| cr_namespace | The CR Namespace's ID |
 | cr_access_key | The CR Namespace's Access Key |
+| cr_user | The CR Namespace's User |
 | cr_endpoint | Public endpoint of the registry |
 | repository_ids | List of repository IDs created |
 | ram_console_username | Console login username |

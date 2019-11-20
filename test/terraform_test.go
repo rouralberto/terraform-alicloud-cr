@@ -4,11 +4,10 @@ import (
 	"testing"
 
 	"github.com/gruntwork-io/terratest/modules/terraform"
+	"github.com/stretchr/testify/assert"
 )
 
 func TestTerraformAlicloudCr(t *testing.T) {
-    t.Logf("Testing terraform-alicloud-cr module...")
-
 	t.Parallel()
 
 	varNamespace := "cr_repo_namespace"
@@ -24,4 +23,10 @@ func TestTerraformAlicloudCr(t *testing.T) {
 	defer terraform.Destroy(t, terraformOptions)
 
 	terraform.InitAndApply(t, terraformOptions)
+
+	actualNamespaceId := terraform.Output(t, terraformOptions, "cr_namespace")
+	actualNamespaceUser := terraform.Output(t, terraformOptions, "cr_user")
+
+	assert.Equal(t, varNamespace, actualNamespaceId)
+	assert.Equal(t, varNamespace + "-cr-user", actualNamespaceUser)
 }

@@ -18,7 +18,7 @@ provider "alicloud" {}
 
 module "cr" {
   source  = "roura356a/cr/alicloud"
-  version = "1.2.2"
+  version = "1.3.0"
   
   namespace = "tu_namespace"
 }
@@ -46,7 +46,9 @@ Puedes crear repositorios simplemente con proporcionar una lista de strings con 
 ## Salidas
 | Nombre | Descripción |
 |------|-------------|
+| cr_namespace | El Namespace creado |
 | cr_access_key | El AccessKey para el namespace de CR |
+| cr_user | El usuario creado para el namespace de CR |
 | cr_endpoint | Dominio público del Registro de Contenedores |
 | repository_ids | Lista de posibles repositorios creados |
 | ram_console_username | Username para la consola |
