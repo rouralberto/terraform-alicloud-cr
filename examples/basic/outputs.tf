@@ -32,3 +32,8 @@ output "disposable_password" {
   description = "Password to activate the console login profile, forces to reset it"
   value       = module.cr.disposable_password
 }
+
+output "access_key_status" {
+  description = "Status of the created AccessKey"
+  value       = module.cr.access_key_status
+}

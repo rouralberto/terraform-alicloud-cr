@@ -32,3 +32,8 @@ output "disposable_password" {
   description = "Password to activate the console login profile, forces to reset it"
   value       = random_string.cr_console_password.result
 }
+
+output "access_key_status" {
+  description = "Status of the created AccessKey"
+  value       = alicloud_ram_access_key.cr_ak
+}

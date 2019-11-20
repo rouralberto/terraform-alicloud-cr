@@ -53,6 +53,7 @@ Puedes crear repositorios simplemente con proporcionar una lista de strings con 
 | repository_ids | Lista de posibles repositorios creados |
 | ram_console_username | Username para la consola |
 | disposable_password | Contraseña temporal para activar el usuario en la consola, fuerza a resetearla |
+| access_key_status | Estado de la llave creada |
 
 
 ## Docker Login

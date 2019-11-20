@@ -26,7 +26,9 @@ func TestTerraformAlicloudCr(t *testing.T) {
 
 	actualNamespaceId := terraform.Output(t, terraformOptions, "cr_namespace")
 	actualNamespaceUser := terraform.Output(t, terraformOptions, "cr_user")
+	actualAkStatus := terraform.Output(t, terraformOptions, "access_key_status")
 
 	assert.Equal(t, varNamespace, actualNamespaceId)
 	assert.Equal(t, varNamespace + "-cr-user", actualNamespaceUser)
+	assert.Equal(t, "Active", actualAkStatus)
 }
