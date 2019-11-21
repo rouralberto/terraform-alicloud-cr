@@ -12,6 +12,12 @@ definido todavía, por favor instala [aliyun-cli](https://github.com/aliyun/aliy
 ----------------------
 
 
+## Arquitectura del Módulo
+Tras usar este módulo, los siguientes recursos serán creados:
+
+![terraform-alicloud-cr diagram](https://raw.githubusercontent.com/roura356a/terraform-alicloud-cr/master/diagram.png "Module Diagram")
+
+
 ## Uso
 ```hcl
 provider "alicloud" {}
@@ -29,27 +35,21 @@ _SecretKey_ necesarios para llamar el API de `cr` `GetAuthorizationToken` y así
 dentro del namespace creado.
 
 
-## Arquitectura del Módulo
-Tras usar este módulo, los siguientes recursos serán creados:
-
-![terraform-alicloud-cr diagram](https://raw.githubusercontent.com/roura356a/terraform-alicloud-cr/master/diagram.png "Module Diagram")
-
-
-## Entradas
+### Entradas
 | Nombre | Descripción | Tipo | Valor por defecto | Requerido |
 |------|-------------|------|---------|----------|
 | region | La región usada para lanzar los recursos definidos por el módulo | string | - | no |
-| profile | El nombre del perfil como aparece en el archivo `credentials`. Si no se proporciona, el valor será leído de la variable de entorno ALICLOUD_PROFILE | string | - | no |
-| shared_credentials_file | La ruta al archivo `credentials`. Si no se proporciona y un perfil ha sido especificado, se asumirá $HOME/.aliyun/config.json como valor | string | - | no |
+| profile | El nombre del perfil como aparece en el archivo `credentials`. Si no se proporciona, el valor será leído de la variable de entorno `ALICLOUD_PROFILE` | string | - | no |
+| shared_credentials_file | La ruta al archivo `credentials`. Si no se proporciona y un perfil ha sido especificado, se asumirá `$HOME/.aliyun/config.json` como valor | string | - | no |
 | skip_region_validation | Omitir validación estática de la región. Usada por usuarios que tienen acceso a regiones privadas o regiones que usan APIs compatibles con Alibaba Cloud | bool | - | no |
 | namespace | Nombre del namespace para crear en el Registro de Contenedores | string | - | sí |
 | repositories | Lista opcional de repositorios para ser creados al lanzar | list(string) | - | no |
-| repo_autocreate | Booleana, cuando se asigne true, los repositorios podrán ser creados al vuelo cuando se use docker push con nuevas imágenes | bool | - | no |
+| repo_autocreate | Booleana, cuando se asigne `true`, los repositorios podrán ser creados al vuelo cuando se use docker push con nuevas imágenes | bool | - | no |
 
 Puedes crear repositorios simplemente con proporcionar una lista de strings con la variable `repositories`.
 
 
-## Salidas
+### Salidas
 | Nombre | Descripción |
 |------|-------------|
 | cr_namespace | El Namespace creado |
@@ -66,7 +66,7 @@ Puedes crear repositorios simplemente con proporcionar una lista de strings con 
 | ram_policy_attachments | El número de veces que la póliza ha sido adjuntada |
 
 
-## Docker Login
+### Docker Login
 Con el fin de activar el recién creado usuario RAM en el Registro, sólo la primera vez y por razones de seguridad,
 Alibaba Cloud pide (esto puede cambiar en el futuro) que naveges a la
 [Consola del Registro de Contenedores](https://cr.console.aliyun.com/) usando el nuevo usuario RAM con la contraseña

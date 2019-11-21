@@ -1,7 +1,7 @@
-# Basic Example for "roura356a/cr/alicloud" Terraform Module
+# Basic Example for "roura356a/cr/alicloud" Terraform Module | Ejemplo Básico | 基本范例
 This example will create a namespace with 3 repositories inside and a RAM user with full access to them.
 
-## Usage
+## Usage | Uso | 用法
 Write the following `main.tf` file and run `terraform apply`:
 ```hcl
 provider "alicloud" {}
@@ -15,7 +15,7 @@ module "cr" {
 }
 ```
 
-### Outputs
+### Outputs | Salidas | 产出
 The following outputs can be defined in the `outputs.tf` file:
 ```hcl
 output "cr_namespace" {

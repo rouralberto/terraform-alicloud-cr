@@ -1,9 +1,10 @@
 .terraform
 cr-*-ak.json
-*.tfstate
-*.tfstate.*
+*tfstat*
 
 .idea
+
+vendor
 
 *.mod
 *.sum
