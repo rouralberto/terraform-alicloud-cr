@@ -12,6 +12,7 @@ func TestTerraformAlicloudCr(t *testing.T) {
 
 	// The name for the namespace, only required variable
 	varNamespace := "cr_repo_namespace"
+	varDefaultRepository := "default"
 
 	terraformOptions := &terraform.Options{
 		TerraformDir: "../",
@@ -44,7 +45,7 @@ func TestTerraformAlicloudCr(t *testing.T) {
 	assert.Equal(t, varNamespace, actualNamespaceId)
 	assert.Equal(t, expectedUserName, actualNamespaceUser)
 	assert.Equal(t, expectedUserName, actualRamUser)
-	assert.Equal(t, "[\n  \"cr_repo_namespace/default\",\n]", actualRepositoryIds)
+	assert.Equal(t, "[\n  \"" + varNamespace + "/" + varDefaultRepository + "\",\n]", actualRepositoryIds)
 	assert.Equal(t, expectedPolicyName, actualPolicyName)
 	assert.Equal(t, expectedPolicyAttachment, actualPolicyAttachment)
 	assert.Equal(t, "Active", actualAkStatus)
