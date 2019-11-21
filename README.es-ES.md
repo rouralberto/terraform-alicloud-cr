@@ -20,7 +20,7 @@ module "cr" {
   source  = "roura356a/cr/alicloud"
   version = "1.3.0"
   
-  namespace = "tu_namespace"
+  namespace = "cr_repo_namespace"
 }
 ```
 
@@ -56,6 +56,8 @@ Puedes crear repositorios simplemente con proporcionar una lista de strings con 
 | ram_console_username | Username para la consola |
 | disposable_password | Contraseña temporal para activar el usuario en la consola, fuerza a resetearla |
 | access_key_status | Estado de la llave creada |
+| ram_policy_type | El tipo de la póliza RAM |
+| ram_policy_attachments | El número de veces que la póliza ha sido adjuntada |
 
 
 ## Docker Login

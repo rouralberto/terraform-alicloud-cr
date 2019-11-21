@@ -20,13 +20,17 @@ module "cr" {
   source  = "roura356a/cr/alicloud"
   version = "1.3.0"
   
-  namespace = "your_namespace"
+  namespace = "cr_repo_namespace"
 }
 ```
 
 After running `terraform apply`, a file called `cr-{namespace}-ak.json` will be generated with the _AccessKey_ &
 _SecretKey_ needed to query the `GetAuthorizationToken` API for `cr` and be able to push/pull to/from the repositories
 inside the namespace created.
+
+
+## Architecture Diagram
+After using this module, the following resources will be created.
 
 
 ## Inputs
@@ -57,6 +61,8 @@ You can create repositories by populating the `repositories` variable with a lis
 | ram_console_username | Console login username |
 | disposable_password | Password to activate the console login profile, forces to reset it |
 | access_key_status | Status of the created AccessKey |
+| ram_policy_type | The RAM policy type |
+| ram_policy_attachment | The RAM policy attachment ID |
 
 
 ## Docker Login
