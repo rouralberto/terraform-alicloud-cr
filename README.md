@@ -30,7 +30,9 @@ inside the namespace created.
 
 
 ## Architecture Diagram
-After using this module, the following resources will be created.
+After using this module, the following resources will be created:
+
+![terraform-alicloud-cr diagram](https://raw.githubusercontent.com/roura356a/terraform-alicloud-cr/master/diagram.png "Module Diagram")
 
 
 ## Inputs

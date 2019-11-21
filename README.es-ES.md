@@ -29,6 +29,12 @@ _SecretKey_ necesarios para llamar el API de `cr` `GetAuthorizationToken` y así
 dentro del namespace creado.
 
 
+## Arquitectura del Módulo
+Tras usar este módulo, los siguientes recursos serán creados:
+
+![terraform-alicloud-cr diagram](https://raw.githubusercontent.com/roura356a/terraform-alicloud-cr/master/diagram.png "Module Diagram")
+
+
 ## Entradas
 | Nombre | Descripción | Tipo | Valor por defecto | Requerido |
 |------|-------------|------|---------|----------|
