@@ -44,6 +44,7 @@ func TestTerraformAlicloudCr(t *testing.T) {
 	assert.Equal(t, varNamespace, actualNamespaceId)
 	assert.Equal(t, expectedUserName, actualNamespaceUser)
 	assert.Equal(t, expectedUserName, actualRamUser)
+	assert.Equal(t, "[\n  \"cr_repo_namespace/default\",\n]", actualRepositoryIds)
 	assert.Equal(t, expectedPolicyName, actualPolicyName)
 	assert.Equal(t, expectedPolicyAttachment, actualPolicyAttachment)
 	assert.Equal(t, "Active", actualAkStatus)
