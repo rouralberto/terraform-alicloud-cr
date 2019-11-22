@@ -34,13 +34,13 @@ module "cr" {
 ### 输入
 | 名称 | 描述 | 类型 | 默认 | 需要 |
 |-----|------|-----|-----|-----|
-| region | 用于启动此模块资源的区域 | string | -- | 没有 |
-| profile | 如果没有输入，它将从 `ALICLOUD_PROFILE` 获取值 | string | -- | 没有 |
-| shared_credentials_file | 这是共享凭据文件的路径。如果未设置此参数并指定了配置文件，则将使用 `$HOME/.aliyun/config.json` | string | -- | 没有 |
-| skip_region_validation | 跳过区域验证 | bool | -- | 没有 |
-| namespace | 容器注册表名称空间的名称 | string | -- | 是 |
-| repositories | 应用时要创建的可选存储库列表 | list(string) | -- | 没有 |
-| repo_autocreate | 当变量设置为 `true` 时，推送新映像时将自动创建存储库。 如果设置为 `false`，则需要在推送之前为图像创建存储库 | bool | -- | 没有 |
+| region | 用于启动此模块资源的区域 | string | "" | 没有 |
+| profile | 如果没有输入，它将从 `ALICLOUD_PROFILE` 获取值 | string | "default" | 没有 |
+| shared_credentials_file | 这是共享凭据文件的路径。如果未设置此参数并指定了配置文件，则将使用 `$HOME/.aliyun/config.json` | string | "" | 没有 |
+| skip_region_validation | 跳过区域验证 | bool | false | 没有 |
+| namespace | 容器注册表名称空间的名称 | string | - | 是 |
+| repositories | 应用时要创建的可选存储库列表 | list(string) | ["default"] | 没有 |
+| repo_autocreate | 当变量设置为 `true` 时，推送新映像时将自动创建存储库。 如果设置为 `false`，则需要在推送之前为图像创建存储库 | bool | true | 没有 |
 
 通过填充变量 `repositories` 来创建存储库。
 

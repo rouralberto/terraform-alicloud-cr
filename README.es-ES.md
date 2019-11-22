@@ -38,13 +38,13 @@ dentro del namespace creado.
 ### Entradas
 | Nombre | Descripción | Tipo | Valor por defecto | Requerido |
 |------|-------------|------|---------|----------|
-| region | La región usada para lanzar los recursos definidos por el módulo | string | - | no |
-| profile | El nombre del perfil como aparece en el archivo `credentials`. Si no se proporciona, el valor será leído de la variable de entorno `ALICLOUD_PROFILE` | string | - | no |
-| shared_credentials_file | La ruta al archivo `credentials`. Si no se proporciona y un perfil ha sido especificado, se asumirá `$HOME/.aliyun/config.json` como valor | string | - | no |
-| skip_region_validation | Omitir validación estática de la región. Usada por usuarios que tienen acceso a regiones privadas o regiones que usan APIs compatibles con Alibaba Cloud | bool | - | no |
+| region | La región usada para lanzar los recursos definidos por el módulo | string | "" | no |
+| profile | El nombre del perfil como aparece en el archivo `credentials`. Si no se proporciona, el valor será leído de la variable de entorno `ALICLOUD_PROFILE` | string | "default" | no |
+| shared_credentials_file | La ruta al archivo `credentials`. Si no se proporciona y un perfil ha sido especificado, se asumirá `$HOME/.aliyun/config.json` como valor | string | "" | no |
+| skip_region_validation | Omitir validación estática de la región. Usada por usuarios que tienen acceso a regiones privadas o regiones que usan APIs compatibles con Alibaba Cloud | bool | false | no |
 | namespace | Nombre del namespace para crear en el Registro de Contenedores | string | - | sí |
-| repositories | Lista opcional de repositorios para ser creados al lanzar | list(string) | - | no |
-| repo_autocreate | Booleana, cuando se asigne `true`, los repositorios podrán ser creados al vuelo cuando se use docker push con nuevas imágenes | bool | - | no |
+| repositories | Lista opcional de repositorios para ser creados al lanzar | list(string) | ["default"] | no |
+| repo_autocreate | Booleana, cuando se asigne `true`, los repositorios podrán ser creados al vuelo cuando se use docker push con nuevas imágenes | bool | true | no |
 
 Puedes crear repositorios simplemente con proporcionar una lista de strings con la variable `repositories`.
 
