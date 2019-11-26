@@ -37,16 +37,19 @@ func TestTerraformAlicloudCr(t *testing.T) {
 	actualPolicyAttachment := terraform.Output(t, terraformOptions, "ram_policy_attachment")
 
 	// Expected outputs
+	expectedNamespaceId := varNamespace
 	expectedUserName := varNamespace + "-cr-user"
 	expectedPolicyName := varNamespace + "-cr-policy"
 	expectedPolicyAttachment := "user:" + actualPolicyName + ":" + actualPolicyType + ":" + actualRamUser
+	expectedRepositoryIds := "[\n  \"" + varNamespace + "/" + varDefaultRepository + "\",\n]"
+	expectedAkStatus := "Active"
 
 	// Tests against expected values from created resources in the cr module
-	assert.Equal(t, varNamespace, actualNamespaceId)
+	assert.Equal(t, expectedNamespaceId, actualNamespaceId)
 	assert.Equal(t, expectedUserName, actualNamespaceUser)
 	assert.Equal(t, expectedUserName, actualRamUser)
-	assert.Equal(t, "[\n  \"" + varNamespace + "/" + varDefaultRepository + "\",\n]", actualRepositoryIds)
+	assert.Equal(t, expectedRepositoryIds, actualRepositoryIds)
 	assert.Equal(t, expectedPolicyName, actualPolicyName)
 	assert.Equal(t, expectedPolicyAttachment, actualPolicyAttachment)
-	assert.Equal(t, "Active", actualAkStatus)
+	assert.Equal(t, expectedAkStatus, actualAkStatus)
 }
