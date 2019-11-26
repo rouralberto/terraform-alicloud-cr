@@ -54,6 +54,6 @@ func TestTerraformAlicloudCr(t *testing.T) {
 	assert.Equal(t, expectedPolicyAttachment, actualPolicyAttachment)
 	assert.Equal(t, expectedAkStatus, actualAkStatus)
 
-    // Tests whether the credentials file for the end-user exists or not
+	// Tests whether the credentials file for the end-user exists or not
 	files.FileExists("../cr-cr_repo_namespace-ak.json")
 }
