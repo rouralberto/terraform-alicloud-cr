@@ -4,6 +4,7 @@ import (
 	"testing"
 
 	"github.com/gruntwork-io/terratest/modules/terraform"
+	"github.com/gruntwork-io/terratest/modules/files"
 	"github.com/stretchr/testify/assert"
 )
 
@@ -52,4 +53,7 @@ func TestTerraformAlicloudCr(t *testing.T) {
 	assert.Equal(t, expectedPolicyName, actualPolicyName)
 	assert.Equal(t, expectedPolicyAttachment, actualPolicyAttachment)
 	assert.Equal(t, expectedAkStatus, actualAkStatus)
+
+    // Tests whether the credentials file for the end-user exists or not
+	files.FileExists("../cr-cr_repo_namespace-ak.json")
 }
