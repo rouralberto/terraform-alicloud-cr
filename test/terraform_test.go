@@ -3,8 +3,8 @@ package test
 import (
 	"testing"
 
-	"github.com/gruntwork-io/terratest/modules/terraform"
 	"github.com/gruntwork-io/terratest/modules/files"
+	"github.com/gruntwork-io/terratest/modules/terraform"
 	"github.com/stretchr/testify/assert"
 )
 
@@ -12,7 +12,7 @@ func TestTerraformAlicloudCr(t *testing.T) {
 	t.Parallel()
 
 	// The name for the namespace is the only required variable
-	varNamespace         := "cr_repo_namespace"
+	varNamespace := "cr_repo_namespace"
 	varDefaultRepository := "default"
 
 	// Context for the terraform module files
@@ -26,28 +26,30 @@ func TestTerraformAlicloudCr(t *testing.T) {
 		NoColor: true,
 	}
 
-	defer terraform.Destroy(t, terraformOptions)
-
+	// Effectively runs `terraform init` & `terraform apply`
 	terraform.InitAndApply(t, terraformOptions)
 
+	// Waits for this test function to finish to run `terraform destroy`
+	defer terraform.Destroy(t, terraformOptions)
+
 	// Reading the outputs from the cr module
-	actualNamespaceId      := terraform.Output(t, terraformOptions, "cr_namespace")
-	actualNamespaceUser    := terraform.Output(t, terraformOptions, "cr_user")
-	actualAkStatus         := terraform.Output(t, terraformOptions, "access_key_status")
-	actualRepositoryIds    := terraform.Output(t, terraformOptions, "repository_ids")
-	actualRamUser          := terraform.Output(t, terraformOptions, "ram_user")
-	actualPolicyName       := terraform.Output(t, terraformOptions, "ram_policy_name")
-	actualPolicyType       := terraform.Output(t, terraformOptions, "ram_policy_type")
+	actualNamespaceId := terraform.Output(t, terraformOptions, "cr_namespace")
+	actualNamespaceUser := terraform.Output(t, terraformOptions, "cr_user")
+	actualAkStatus := terraform.Output(t, terraformOptions, "access_key_status")
+	actualRepositoryIds := terraform.Output(t, terraformOptions, "repository_ids")
+	actualRamUser := terraform.Output(t, terraformOptions, "ram_user")
+	actualPolicyName := terraform.Output(t, terraformOptions, "ram_policy_name")
+	actualPolicyType := terraform.Output(t, terraformOptions, "ram_policy_type")
 	actualPolicyAttachment := terraform.Output(t, terraformOptions, "ram_policy_attachment")
 
 	// Expected outputs
-	expectedNamespaceId      := varNamespace
-	expectedUserName         := varNamespace + "-cr-user"
-	expectedPolicyName       := varNamespace + "-cr-policy"
+	expectedNamespaceId := varNamespace
+	expectedUserName := varNamespace + "-cr-user"
+	expectedPolicyName := varNamespace + "-cr-policy"
 	expectedPolicyAttachment := "user:" + actualPolicyName + ":" + actualPolicyType + ":" + actualRamUser
-	expectedRepositoryIds    := "[\n  \"" + varNamespace + "/" + varDefaultRepository + "\",\n]"
-	expectedAkStatus         := "Active"
-	expectedAkFileName       := "cr-" + varNamespace + "-ak.json"
+	expectedRepositoryIds := "[\n  \"" + varNamespace + "/" + varDefaultRepository + "\",\n]"
+	expectedAkStatus := "Active"
+	expectedAkFileName := "cr-" + varNamespace + "-ak.json"
 
 	// Tests against expected values from created resources in the cr module
 	assert.Equal(t, expectedNamespaceId, actualNamespaceId)
