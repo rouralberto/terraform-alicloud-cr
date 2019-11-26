@@ -15,8 +15,10 @@ func TestTerraformAlicloudCr(t *testing.T) {
 	varNamespace         := "cr_repo_namespace"
 	varDefaultRepository := "default"
 
+	varTerraformDir := "../"
+
 	terraformOptions := &terraform.Options{
-		TerraformDir: "../",
+		TerraformDir: varTerraformDir,
 		Vars: map[string]interface{}{
 			"namespace": varNamespace,
 		},
@@ -44,6 +46,7 @@ func TestTerraformAlicloudCr(t *testing.T) {
 	expectedPolicyAttachment := "user:" + actualPolicyName + ":" + actualPolicyType + ":" + actualRamUser
 	expectedRepositoryIds    := "[\n  \"" + varNamespace + "/" + varDefaultRepository + "\",\n]"
 	expectedAkStatus         := "Active"
+	expectedAkFileName       := "cr-" + varNamespace + "-ak.json"
 
 	// Tests against expected values from created resources in the cr module
 	assert.Equal(t, expectedNamespaceId, actualNamespaceId)
@@ -55,5 +58,5 @@ func TestTerraformAlicloudCr(t *testing.T) {
 	assert.Equal(t, expectedAkStatus, actualAkStatus)
 
 	// Tests whether the credentials file for the end-user exists or not
-	files.FileExists("../cr-cr_repo_namespace-ak.json")
+	files.FileExists(varTerraformDir + expectedAkFileName)
 }
