@@ -15,6 +15,7 @@ func TestTerraformAlicloudCr(t *testing.T) {
 	varNamespace         := "cr_repo_namespace"
 	varDefaultRepository := "default"
 
+	// Context for the terraform module files
 	varTerraformDir := "../"
 
 	terraformOptions := &terraform.Options{
