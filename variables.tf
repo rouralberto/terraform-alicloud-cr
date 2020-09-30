@@ -27,6 +27,12 @@ variable "namespace" {
   type        = string
 }
 
+variable "password" {
+  description = "Password for the Container Registry"
+  type        = string
+  default     = ""
+}
+
 variable "repositories" {
   description = "List of repositories to be created on apply"
   default     = ["default"]
