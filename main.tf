@@ -74,8 +74,8 @@ resource "alicloud_ram_user" "namespace_user" {
 
 resource "alicloud_ram_login_profile" "namespace_console_user" {
   user_name               = alicloud_ram_user.namespace_user.name
-  password                = random_string.cr_console_password.result
-  password_reset_required = true
+  password                = var.password != "" ? var.password : random_string.cr_console_password.result
+  password_reset_required = var.password != "" ? false : true
   lifecycle {
     ignore_changes = [
       password_reset_required
