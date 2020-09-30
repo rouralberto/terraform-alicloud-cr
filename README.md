@@ -43,6 +43,7 @@ inside the namespace created.
 | shared_credentials_file | This is the path to the shared credentials file. If this is not set and a profile is specified, `$HOME/.aliyun/config.json` will be used | string | "" | no |
 | skip_region_validation | Skip static validation of region ID. Used by users of alternative AlibabaCloud-like APIs or users w/ access to regions that are not public (yet) | bool | false | no |
 | namespace | Name of Container Registry namespace | string | - | yes |
+| password | Password for the Container Registry | string | "" | no |
 | repositories | List of optional repositories to be created on apply | list(string) | ["default"] | no |
 | repo_autocreate | Boolean, when it set to `true`, repositories are automatically created when pushing new images. If it set to `false`, you create repository for images before pushing | bool | true | no |
 
